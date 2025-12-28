@@ -39,17 +39,11 @@ function initializePlayer() {
     })
 
     player.on("ready", () => {
-        console.log("[v0] Plyr ready")
         hideLoading()
     })
 
     player.on("error", () => {
-        console.log("[v0] Plyr error")
         showError()
-    })
-
-    player.on("playing", () => {
-        console.log("[v0] Video playing")
     })
 }
 
@@ -67,7 +61,6 @@ function showLoading() {
 }
 
 function showPlayer() {
-    console.log("[v0] Showing player")
     document.getElementById("playerPlaceholder").classList.add("hidden")
     document.getElementById("loadingState").classList.remove("active")
     document.getElementById("errorState").classList.remove("active")
@@ -155,7 +148,7 @@ function loadVideo() {
         showPlayer()
         if (player && player.play) {
             player.play().catch((err) => {
-                console.log("[v0] Play error:", err)
+                console.log("Play error:", err)
             })
         }
     }, 1000)
